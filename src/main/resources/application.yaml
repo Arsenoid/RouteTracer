@@ -1,6 +1,6 @@
 spring:
   application:
-    name: CourseWork_TC
+    name: RouteTracer
   Jackson:
     serialization:
       write-dates-as-timestamps: false
@@ -23,6 +23,8 @@ spring:
   freemarker:
     expose-request-attributes: true
     cache: false
+    # Чтобы FreeMarker видел правки .ftlh с диска
+    prefer-file-system-access: true
     settings:
       template_update_delay: 0
   devtools:
