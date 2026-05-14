@@ -34,6 +34,7 @@ public class SecurityConfig {
                                 "/api/vehicles/*/telemetry",
                                 "/api/sessions",
                                 "/api/sessions/**",
+                                "/api/routes/*/progress",
                                 "/vehicles",
                                 "/map",
                                 "/").permitAll()

@@ -9,6 +9,7 @@ import java.time.Instant;
 public record TrackingSessionResponse(
         Long id,
         Long vehicleId,
+        Long routeId,
         TelemetrySource source,
         TrackingSessionStatus status,
         Instant startedAt,
@@ -18,6 +19,7 @@ public record TrackingSessionResponse(
         return new TrackingSessionResponse(
                 session.getId(),
                 session.getVehicle().getId(),
+                session.getRoute() != null ? session.getRoute().getId() : null,
                 session.getSource(),
                 session.getStatus(),
                 session.getStartedAt(),

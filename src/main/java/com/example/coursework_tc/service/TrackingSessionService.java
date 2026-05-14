@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TrackingSessionService {
 
-    TrackingSession startSession(Long vehicleId, TelemetrySource source);
+    TrackingSession startSession(Long vehicleId, TelemetrySource source, Long routeId);
 
     TrackingSession stopSession(Long sessionId);
 

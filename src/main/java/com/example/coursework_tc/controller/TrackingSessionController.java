@@ -21,7 +21,7 @@ public class TrackingSessionController {
     @ResponseStatus(HttpStatus.CREATED)
     public TrackingSessionResponse startSession(@Valid @RequestBody StartSessionRequest request) {
         return TrackingSessionResponse.from(
-                sessionService.startSession(request.vehicleId(), request.source())
+                sessionService.startSession(request.vehicleId(), request.source(), request.routeId())
         );
     }
 

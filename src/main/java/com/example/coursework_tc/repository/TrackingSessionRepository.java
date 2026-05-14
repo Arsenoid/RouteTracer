@@ -12,4 +12,8 @@ public interface TrackingSessionRepository extends JpaRepository<TrackingSession
     List<TrackingSession> findByVehicleIdOrderByStartedAtDesc(Long vehicleId);
 
     Optional<TrackingSession> findByVehicleIdAndStatus(Long vehicleId, TrackingSessionStatus status);
+
+    Optional<TrackingSession> findFirstByRouteIdAndStatusOrderByStartedAtDesc(Long routeId, TrackingSessionStatus status);
+
+    Optional<TrackingSession> findFirstByRouteIdOrderByStartedAtDesc(Long routeId);
 }

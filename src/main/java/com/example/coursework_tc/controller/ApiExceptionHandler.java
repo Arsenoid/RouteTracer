@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
 
-@RestControllerAdvice(assignableTypes = {TelemetryController.class, TrackingSessionController.class})
+@RestControllerAdvice(assignableTypes = {
+        TelemetryController.class,
+        TrackingSessionController.class,
+        RouteTrackingController.class
+})
 public class ApiExceptionHandler {
 
     @ExceptionHandler(VehicleNotFoundException.class)
@@ -40,6 +44,12 @@ public class ApiExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleTelemetryValidation(TelemetryValidationException ex) {
         return ResponseEntity.badRequest()
                 .body(ApiErrorResponse.of("TELEMETRY_VALIDATION_ERROR", ex.getMessage(), List.of()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ApiErrorResponse> handleIllegalArgument(IllegalArgumentException ex) {
+        return ResponseEntity.badRequest()
+                .body(ApiErrorResponse.of("BAD_REQUEST", ex.getMessage(), List.of()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

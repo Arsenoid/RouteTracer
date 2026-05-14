@@ -20,6 +20,7 @@ public class MapController {
     public String mapPage(
             @RequestParam(required = false) Long vehicleId,
             @RequestParam(required = false) Long sessionId,
+            @RequestParam(required = false) Long routeId,
             Model model
     ) {
         if (vehicleId != null) {
@@ -32,6 +33,7 @@ public class MapController {
         }
         model.addAttribute("vehicleId", vehicleId);
         model.addAttribute("sessionId", sessionId);
+        model.addAttribute("routeId", routeId);
         return "map";
     }
 }

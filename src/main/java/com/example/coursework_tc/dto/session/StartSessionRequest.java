@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record StartSessionRequest(
         @NotNull Long vehicleId,
-        @NotNull TelemetrySource source
+        @NotNull TelemetrySource source,
+        @NotNull Long routeId
 ) {
 }

@@ -22,6 +22,10 @@ public class TrackingSession {
     @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id")
+    private Route route;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 32)
     private TelemetrySource source;
